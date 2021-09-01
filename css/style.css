@@ -1,0 +1,16 @@
+body{
+    background-color: rgb(255, 254, 251);
+}
+span{
+    background-color: yellow;
+    color: black;
+}
+#about-result{
+    display: none;
+}
+#empty{
+    display: none;
+}
+#error{
+    display: none;
+}
