@@ -1,3 +1,4 @@
+// loading spineer
 const myFunction = () =>
 {
     setTimeout(showPage, 3000);
@@ -22,24 +23,25 @@ const searchBook = () =>
         document.getElementById('about-result').style.display = 'none';
         document.getElementById('error').style.display = 'none';
     } else {
-        document.getElementById('empty').style.display = 'none';
         const url = `https://openlibrary.org/search.json?q=${inputTextValue}`;
         fetch(url)
             .then(res => res.json())
-            .then(data => booksearch(data.docs))
+            .then(data => booksearch(data))
         // spinner add 
+        document.getElementById('empty').style.display = 'none';
         document.getElementById('spinner').style.display = 'block';
         document.getElementById('about-result').style.display = 'none';
         document.getElementById('card-display').style.display = 'none';
         document.getElementById('error').style.display = 'none';
-        result.style.display = 'none';
     }
 }
 // api call with function //
 const booksearch = data =>
 {
     // console.log(data);
-    if (data.length === 0) {    // error massage 
+    const data1 = data.docs;
+    // console.log(data1);
+    if (data1.length === 0) {    // error massage 
         document.getElementById('spinner').style.display = 'none';
         document.getElementById('about-result').style.display = 'none';
         document.getElementById('card-display').style.display = 'none';
@@ -49,12 +51,14 @@ const booksearch = data =>
         document.getElementById('error').style.display = 'none';
         document.getElementById('card-display').style.display = 'block';
         // errror message //
-        result.innerText = `About ${data.length} search results available`;
+        // const books = data.docs
+        // ==========  Founded Data  ========= //
+        result.innerText = `About ${data.numFound} search results available`;
         result.style.display = 'block';
         const card = document.getElementById('card-title');
         card.textContent = '';
         document.getElementById('spinner').style.display = 'none';
-        data?.forEach(book =>
+        data1.forEach(book =>
         {
             // console.log(book);
             // console.log(book.text[2]);
