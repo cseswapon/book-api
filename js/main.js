@@ -1,3 +1,13 @@
+const myFunction = () =>
+{
+    setTimeout(showPage, 3000);
+}
+
+const showPage = () =>
+{
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("myDiv").style.display = "block";
+}
 // create custom id // whith global variable //
 const result = document.getElementById('about-result');
 // button click //
@@ -55,7 +65,7 @@ const booksearch = data =>
             <div class="card h-100">
             <img src="https://covers.openlibrary.org/b/id/${book.cover_i ? book.cover_i : '10909258'}-L.jpg" class="card-img-top img-fluid mx-auto h-50" alt="Book img not found">
             <div class="card-body">
-                <h5 class="card-title">${book?.text[2]}</h5><hr>
+                <h5 class="card-title">${book.title ? book.title : 'not found result'}</h5><hr>
                 <p class="card-text"><span><strong>Author : </strong></span>${book.author_name ? book.author_name : 'not found'}</p>
                 <p class="card-text"><span><strong>Publisher : </span>${book.publisher ? book.publisher : 'not found'} </strong></p>
             </div>

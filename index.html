@@ -20,50 +20,56 @@
     <title>Book Check</title>
 </head>
 
-<body class="container">
-    <!-- search section -->
-    <section>
-        <h1 class="text-center text-danger fw-bolder mt-3">Search Book Name</h1>
-        <div class="input-group mb-3 mx-auto mt-3">
-            <input type="text" class="form-control" placeholder="Search Book ... " id="input-text"
-                aria-label="Search Book..." aria-describedby="button-addon2">
-            <button class="btn btn-outline-primary" type="button" onclick="searchBook()"><i
-                    class="fas fa-search"></i></button>
-        </div>
-    </section>
-    <div id="spinner" class="text-center">
-        <img width="380px" height="250px" src="./img/spinner.gif" alt="spinner-add">
+<body onload="myFunction()" class="container">
+    <!-- home page loading -->
+    <div class="text-center" id="loading">
+        <img width="150px" height="150px" src="./img/xz.gif" alt="home page loading">
     </div>
-    <!-- empty string aleart -->
-    <div id="empty" class="text-center">
-        <div class="alert alert-primary" role="alert">
-            Try again text your book name !
+    <div id="myDiv">
+        <!-- search section -->
+        <section>
+            <h1 class="text-center text-danger fw-bolder mt-3">Search Book Name</h1>
+            <div class="input-group mb-3 mx-auto mt-3">
+                <input type="text" class="form-control" placeholder="Search Book ... " id="input-text"
+                    aria-label="Search Book..." aria-describedby="button-addon2">
+                <button class="btn btn-outline-primary" type="button" onclick="searchBook()"><i
+                        class="fas fa-search"></i></button>
+            </div>
+        </section>
+        <div id="spinner" class="text-center">
+            <img width="380px" height="250px" src="./img/spinner.gif" alt="spinner-add">
         </div>
-    </div>
-    <!-- About result -->
-    <div id="about-result" class="alert alert-info mx-auto">
-        <div class="text-center" role="alert">
+        <!-- empty string aleart -->
+        <div id="empty" class="text-center">
+            <div class="alert alert-primary" role="alert">
+                Try again text your book name !
+            </div>
+        </div>
+        <!-- About result -->
+        <div id="about-result" class="alert alert-info mx-auto">
+            <div class="text-center" role="alert">
 
+            </div>
         </div>
-    </div>
-    <!-- error handeling -->
-    <div id="error" class="text-center">
-        <div class="alert alert-danger" role="alert">
-            No result found !
+        <!-- error handeling -->
+        <div id="error" class="text-center">
+            <div class="alert alert-danger" role="alert">
+                No result found !
+            </div>
         </div>
-    </div>
-    <!-- test -->
-    <div id="card-display">
-        <div id="card-title" class="row row-cols-1 row-cols-md-3 g-4">
+        <!-- test -->
+        <div id="card-display">
+            <div id="card-title" class="row row-cols-1 row-cols-md-3 g-4">
 
+            </div>
         </div>
-    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <!-- main js -->
-    <script src="./js/main.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+        <!-- main js -->
+        <script src="./js/main.js"></script>
+    </div>
 </body>
 
 </html>
