@@ -1,3 +1,5 @@
+// create custom id // whith global variable //
+const result = document.getElementById('about-result');
 // button click //
 const searchBook = () =>
 {
@@ -15,25 +17,33 @@ const searchBook = () =>
         fetch(url)
             .then(res => res.json())
             .then(data => booksearch(data.docs))
+        // spinner add 
+        document.getElementById('spinner').style.display = 'block';
+        document.getElementById('about-result').style.display = 'none';
+        document.getElementById('card-display').style.display = 'none';
+        document.getElementById('error').style.display = 'none';
+        result.style.display = 'none';
     }
 }
 // api call with function //
 const booksearch = data =>
 {
     // console.log(data);
-    if (data.length === 0) {    // erro massage handeling
-        document.getElementById('error').style.display = 'block';
+    if (data.length === 0) {    // error massage 
+        document.getElementById('spinner').style.display = 'none';
         document.getElementById('about-result').style.display = 'none';
         document.getElementById('card-display').style.display = 'none';
         document.getElementById('empty').style.display = 'none';
+        document.getElementById('error').style.display = 'block';
     } else {
         document.getElementById('error').style.display = 'none';
         document.getElementById('card-display').style.display = 'block';
-        const result = document.getElementById('about-result');
+        // errror message //
         result.innerText = `About ${data.length} search results available`;
         result.style.display = 'block';
         const card = document.getElementById('card-title');
         card.textContent = '';
+        document.getElementById('spinner').style.display = 'none';
         data?.forEach(book =>
         {
             // console.log(book);
@@ -58,5 +68,7 @@ const booksearch = data =>
             `;
             card.appendChild(div);
         });
+        // spinner hide 
+        document.getElementById('spinner').style.display = 'none';
     }
 }
